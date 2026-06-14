@@ -56,10 +56,13 @@ url_launcher: ^6.3.0 //url
 ---
 ## 📱 App Preview
 
-<img src="assets/Login UI Preview.png" width="500"/>
+<img src="assets/Login UI Preview.png" width="500"/> <br>
+
+### 🖌️ Figma Desain:  
+https://www.figma.com/design/S6P5loJkfQsaoVM7DlvUkt/Glowmee?node-id=0-1&t=mLrZLLSbemdURNFt-1
 
 ---
-## Cara Menjalankan
+## 🔎 Cara Menjalankan
 1. Clone project ini<br>
     ```git clone https://github.com/username glowme_app```
 
@@ -71,7 +74,7 @@ url_launcher: ^6.3.0 //url
 
 4. Jalankan Aplikasi<br>
     ```flutter run```
-
+---
 
 ## (✿◠‿◠) Author
 * Nama: Andini Prihartiningtias
