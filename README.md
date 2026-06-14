@@ -1,5 +1,5 @@
 # 🌸 GlowMe App (Flutter UI)
-<img src=".assets/Poster Aplikasi.png" width="500"/>
+<img src="assets/Poster Aplikasi.png" width="500"/>
 
 GlowMe adalah aplikasi mobile UI berbasis Flutter yang dirancang untuk tampilan **skincare / beauty app** dengan tema warna pastel modern (pink & blue gradient). Project ini fokus pada UI/UX seperti login, sign up, forgot password, dan flow autentikasi.
 
@@ -29,7 +29,7 @@ GlowMe adalah aplikasi mobile UI berbasis Flutter yang dirancang untuk tampilan 
 ---
 
 ## 🖇️ Login Flow
-<img src=".assets/Login Flow.png" width="500"/>
+<img src="assets/Login Flow.png" width="500"/>
 
 ---
 
@@ -56,7 +56,7 @@ url_launcher: ^6.3.0 //url
 ---
 ## 📱 App Preview
 
-<img src=".assets/Login UI Preview.png" width="500"/>
+<img src="assets/Login UI Preview.png" width="500"/>
 
 ---
 ## Cara Menjalankan
