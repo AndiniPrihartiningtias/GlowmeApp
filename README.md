@@ -2,6 +2,7 @@
 <img src="assets/Poster Aplikasi.png" width="500"/>
 
 GlowMe adalah aplikasi mobile yang dirancang untuk membantu pengguna mengelola dan memantau rutinitas perawatan kulit secara lebih teratur dan personal. Aplikasi ini menyediakan fitur pencatatan jadwal skincare harian, rekomendasi produk berdasarkan profil kulit pengguna, artikel edukasi seputar kecantikan dan kesehatan kulit, serta konten video singkat yang informatif. Selain itu, GlowMe menerapkan konsep Machine Learning untuk memberikan rekomendasi skincare yang lebih sesuai dengan jenis kulit dan permasalahan kulit masing-masing pengguna. Dengan kombinasi fitur tracking, edukasi, dan rekomendasi personal, GlowMe diharapkan dapat membantu pengguna membangun kebiasaan perawatan kulit yang konsisten dan mencapai kondisi kulit yang lebih sehat.
+
 ---
 
 ## ✨ Fitur UI
@@ -29,8 +30,9 @@ GlowMe adalah aplikasi mobile yang dirancang untuk membantu pengguna mengelola d
 
 <img src="assets/Login UI Preview.png" width="500"/> <br>
 
-### 🖌️ Figma Desain:  
+**🖌️ Figma Desain:**
 https://www.figma.com/design/S6P5loJkfQsaoVM7DlvUkt/Glowmee?node-id=0-1&t=mLrZLLSbemdURNFt-1
+
 ---
 
 ## 🖇️ Login Flow
