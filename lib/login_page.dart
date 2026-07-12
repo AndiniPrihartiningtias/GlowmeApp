@@ -4,16 +4,32 @@ import 'forgot_password_page.dart';
 import 'home_page.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:provider/provider.dart';
+import 'providers/auth_provider.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
-  // fungsi untuk buka URL
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   void openUrl(String url) async {
     final Uri uri = Uri.parse(url);
+
     if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
-      throw 'Could not launch $url';
+      throw Exception("Could not launch $url");
     }
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
   }
 
   @override
@@ -55,7 +71,12 @@ class LoginPage extends StatelessWidget {
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.08),
+                          color: const Color.fromARGB(
+                            255,
+                            250,
+                            179,
+                            237,
+                          ).withOpacity(0.08),
                           blurRadius: 10,
                           offset: const Offset(0, 4),
                         ),
@@ -91,6 +112,7 @@ class LoginPage extends StatelessWidget {
                         const SizedBox(height: 4),
 
                         TextField(
+                          controller: emailController,
                           style: const TextStyle(fontSize: 14),
                           decoration: InputDecoration(
                             hintText: "Email",
@@ -118,6 +140,7 @@ class LoginPage extends StatelessWidget {
 
                         TextField(
                           style: const TextStyle(fontSize: 14),
+                          controller: passwordController,
                           obscureText: true,
                           decoration: InputDecoration(
                             hintText: "Password",
@@ -151,13 +174,30 @@ class LoginPage extends StatelessWidget {
                           width: 130,
                           height: 38,
                           child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (_) => const HomePage(),
-                                ),
+                            onPressed: () async {
+                              final auth = context.read<AuthProvider>();
+
+                              bool success = await auth.login(
+                                emailController.text.trim(),
+                                passwordController.text.trim(),
                               );
+
+                              if (success) {
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => const HomePage(),
+                                  ),
+                                );
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      auth.errorMessage ?? "Login gagal",
+                                    ),
+                                  ),
+                                );
+                              }
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: const Color(0xFF31C36C),
@@ -165,13 +205,28 @@ class LoginPage extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(25),
                               ),
                             ),
-                            child: const Text(
-                              "Log In",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                              ),
+                            child: Consumer<AuthProvider>(
+                              builder: (context, auth, child) {
+                                if (auth.isLoading) {
+                                  return const SizedBox(
+                                    width: 18,
+                                    height: 18,
+                                    child: CircularProgressIndicator(
+                                      strokeWidth: 2,
+                                      color: Colors.white,
+                                    ),
+                                  );
+                                }
+
+                                return const Text(
+                                  "Log In",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                );
+                              },
                             ),
                           ),
                         ),
