@@ -22,7 +22,7 @@ GlowMe juga dikembangkan menggunakan **Provider State Management**, **MockAPI**,
 
 📸 **Screenshot**
 
-<img src="assets\Login UI Preview.png" width="400"/>
+<img src="assets\Login UI Preview.png" width="500"/>
 
 **Data User**
 1. email: anee123@gmail.com
@@ -57,7 +57,7 @@ Fitur:
 
 📸 Screenshot
 
-<img src="assets/home.png" width="250"/>
+<img src="assets/Home.png" width="300"/>
 
 ---
 
